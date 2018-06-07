@@ -1,4 +1,5 @@
-var _ohanhi$elm_native_ui$Native_NativeUi = (function () {
+// var _ohanhi$elm_native_ui$Native_NativeUi = (function () {
+var _user$project$Native_NativeUi = (function () {
 
   var ReactNative = require('react-native');
   var React = require('react');
@@ -324,46 +325,43 @@ var _ohanhi$elm_native_ui$Native_NativeUi = (function () {
    * program starts running
    */
   function makeComponent(impl, onAppReady, flags) {
-    return React.createClass({
-      getInitialState: function getInitialState() {
-        return {};
-      },
+    return class extends React.Component {
+      state = {};
+      onAppReady: onAppReady;
 
-      onAppReady: onAppReady,
-
-      componentDidMount: function componentDidMount() {
+      componentDidMount() {
         this.eventNode = { tagger: function() {}, parent: undefined };
 
         this._app = _elm_lang$core$Native_Platform.initialize(
           typeof flags === 'undefined' ? impl.init : impl.init(flags),
           impl.update,
           impl.subscriptions,
-          this.renderer
+          this.renderer.bind(this)
         );
 
         if (typeof this.onAppReady === "function") {
           this.onAppReady(this._app);
         }
-      },
+      }
 
-      renderer: function renderer(onMessage, initialModel) {
+      renderer(onMessage, initialModel) {
         this.eventNode.tagger = onMessage;
         this.updateModel(initialModel);
-        return this.updateModel;
-      },
+        return this.updateModel.bind(this);
+      }
 
-      updateModel: function updateModel(model) {
+      updateModel(model) {
         this.setState({ model: model });
-      },
+      }
 
-      render: function render() {
+      render() {
         // There won't be a model to render right away so we'll check that it
         // exists before trying to call the view function
         return typeof this.state.model !== 'undefined' ?
           renderTree(impl.view(this.state.model), this.eventNode, 0) :
           null;
       }
-    });
+    };
   }
 
   /**
