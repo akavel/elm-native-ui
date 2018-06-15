@@ -1,4 +1,5 @@
-const _ohanhi$elm_native_ui$Native_NativeUi_Alert = function () {
+// const _ohanhi$elm_native_ui$Native_NativeUi_Alert = function () {
+const _user$project$Native_NativeUi_Alert = function () {
   const { Alert } = require("react-native");
   const toArray = _elm_lang$core$Native_List.toArray;
   const unit = { ctor: "_Tuple0" };
