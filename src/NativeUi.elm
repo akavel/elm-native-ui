@@ -19,6 +19,9 @@ module NativeUi
 
 {-| Render your application as a React Native app.
 
+# Program
+@docs program, programWithFlags
+
 # Common Helpers
 @docs node, string, customNode, style, styleSheet, property, map, renderProperty, unsafeRenderDecodedProperty
 
@@ -30,9 +33,6 @@ module NativeUi
 
 # Types
 @docs Node, Property
-
-# Program
-@docs program, programWithFlags
 -}
 
 import Json.Decode as Decode exposing (Value, Decoder)

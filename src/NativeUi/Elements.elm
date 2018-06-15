@@ -2,7 +2,7 @@ module NativeUi.Elements exposing (text, image, activityIndicator, picker, progr
 
 {-| elm-native-ui Elements
 
-@docs text, image, activityIndicator, picker, progressBar, progressView, refreshControl, scrollView, segmentedControl, slider, statusBar, switch, tabBar, textInput, toolbar, touchableHighlight, touchableOpacity, view, navigationCardStack, navigationHeader, navigationHeaderTitle
+@docs text, image, activityIndicator, picker, progressBar, progressView, refreshControl, scrollView, segmentedControl, slider, statusBar, switch, tabBar, textInput, toolbar, touchableHighlight, touchableOpacity, view
 -}
 
 import NativeUi exposing (Property, Node, customNode, node)
